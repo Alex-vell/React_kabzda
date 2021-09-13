@@ -11,12 +11,12 @@ export type AccordionPropsType = {
     /**
      * Elements that are showed when accordion is opened. Each item should be ItemType
      */
-    items: ItemType[]
+    /*items: ItemType[]*/
     /**
      * Callback that is called when any item clicked
      * @param value is value of clicked item
      */
-    onClick: (value: any) => void
+    /*onClick: (value: any) => void*/
 }
 
 export function Accordion(props: AccordionPropsType) {
@@ -25,7 +25,7 @@ export function Accordion(props: AccordionPropsType) {
     return <div>
         <AccordionTitle title={props.titleValue}
                         onChange={props.onChange}/>
-        {!props.collapsed && <AccordionBody items={props.items}/>}
+        {!props.collapsed && <AccordionBody />}{/*items={props.items}*/}
     </div>
 }
 
@@ -43,16 +43,15 @@ function AccordionTitle(props: AccordionTitlePropsType) {
 }
 
 type AccordionBodyType = {
-    items: any
+    /*items: any*/
 }
 const AccordionBody = (props: AccordionBodyType) => {
-    debugger
     console.log("AccordionBody rendering")
     return (
         <ul>
-            <li>{props.items[0].title}</li>
-            <li>{props.items[1].title}</li>
-            <li>{props.items[2].title}</li>
+            <li>{/*{props.items[0].title}*/}1</li>
+            <li>{/*{props.items[1].title}*/}2</li>
+            <li>{/*{props.items[2].title}*/}3</li>
         </ul>
     )
 }

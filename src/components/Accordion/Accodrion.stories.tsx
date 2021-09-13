@@ -20,7 +20,7 @@ CollapsedMode.args = {
     ...callbacksProps,
     titleValue: 'Menu',
     collapsed: true,
-    items: []
+    /*items: []*/
 }
 export const UnCollapsedMode = Template.bind({})
 UnCollapsedMode.args = {
@@ -28,19 +28,24 @@ UnCollapsedMode.args = {
     titleValue: 'Users',
     collapsed: false,
     onChange: callback,
-    items: [{title: 'Alex', value: 1}, {title: 'Natali', value: 2}, {title: 'Anna', value: 3}],
+   /* items: [{title: 'Alex', value: 1}, {title: 'Natali', value: 2}, {title: 'Anna', value: 3}],*/
 }
-export const ModeCollapsed = () => {
-    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
-    return <Accordion titleValue={'Users'} collapsed={accordionCollapsed}
-                      onChange={() => {
-                          setAccordionCollapsed(!accordionCollapsed)
-                      }}
-                      items={[{title: 'Alex', value: 1},
-                          {title: 'Natali', value: 2},
-                          {title: 'Anna', value: 3}]}
-                      onClick={(value) => {
-                          alert(`user with ID ${value} should be happy`)
-                      }}/>
-                      }
+export const ModeChanging: Story<AccordionPropsType> = (args) => {
+    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+
+    return <Accordion {...args} collapsed={accordionCollapsed}
+                      onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
+}
+
+ModeChanging.args = {
+    titleValue: 'Users',
+   /* items: [
+        {title: 'Alex', value: 1},
+        {title: 'Natali', value: 2},
+        {title: 'Anna', value: 3}
+    ],
+    onClick: (value) => {
+        alert(`user with ID ${value} should be happy`)
+    }*/
+}
 
