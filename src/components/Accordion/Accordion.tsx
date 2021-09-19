@@ -11,12 +11,12 @@ export type AccordionPropsType = {
     /**
      * Elements that are showed when accordion is opened. Each item should be ItemType
      */
-    /*items: ItemType[]*/
+    items: ItemType[]
     /**
      * Callback that is called when any item clicked
      * @param value is value of clicked item
      */
-    /*onClick: (value: any) => void*/
+    onClick: (value: any) => void
 }
 
 export function Accordion(props: AccordionPropsType) {
@@ -25,7 +25,8 @@ export function Accordion(props: AccordionPropsType) {
     return <div>
         <AccordionTitle title={props.titleValue}
                         onChange={props.onChange}/>
-        {!props.collapsed && <AccordionBody />}{/*items={props.items}*/}
+        {!props.collapsed && <AccordionBody items={props.items}
+                                            onClick={props.onClick}/>}
     </div>
 }
 
@@ -38,20 +39,22 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     console.log("AccordionTitle rendering")
 
     return (
-        <h3 onClick={(e) => props.onChange() }>{props.title}</h3>
+        <h3 onClick={(e) => props.onChange()}>{props.title}</h3>
     )
 }
 
 type AccordionBodyType = {
-    /*items: any*/
+    items: ItemType[]
+    onClick: (value: any) => void
 }
 const AccordionBody = (props: AccordionBodyType) => {
     console.log("AccordionBody rendering")
     return (
         <ul>
-            <li>{/*{props.items[0].title}*/}1</li>
-            <li>{/*{props.items[1].title}*/}2</li>
-            <li>{/*{props.items[2].title}*/}3</li>
+            {props.items.map((i, index) => <li key={index}
+                                               onClick={() => {
+                                                   props.onClick(i.value)
+                                               }}>{i.title}</li>)}
         </ul>
     )
 }

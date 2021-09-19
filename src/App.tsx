@@ -21,7 +21,9 @@ function App(props: any) {
         <UncontrolledOnOff onChange={setSwitchOn}/>{switchOn.toString()}
 
         <Accordion titleValue={"Menu"} collapsed={accordionCollapsed}
-                   onChange={()=>{setAccordionCollapsed(!accordionCollapsed)}} />
+                   onChange={()=>{setAccordionCollapsed(!accordionCollapsed)}}
+                   items={[{title: 'Alex', value: 1}, {title: 'Natali', value: 2}, {title: 'Anna', value: 3}]}
+        onClick={() => {}}/>
         <UncontrolledAccordion titleValue={"Users"}/>
 
         <Rating value={ratingValue} onClick={setRatingValue}/>
