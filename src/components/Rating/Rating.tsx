@@ -1,5 +1,6 @@
 import React from "react";
 import {RatingValueType} from "../../App";
+import {UncontrolledAccordionOrig} from "../UncontrolledAccordion/UncontrolledAccordion";
 
 
 export type RatingPropsType = {
@@ -7,7 +8,7 @@ export type RatingPropsType = {
     onClick: (value: RatingValueType) => void
 }
 
-export function Rating(props: RatingPropsType) {
+export function RatingOrig(props: RatingPropsType) {
     console.log('Rating rendering')
 
     return (
@@ -36,3 +37,4 @@ function Star(props: StarPropsType) {
         {props.selected ? <b>star </b> : 'star '}
     </span>
 }
+export const Rating = React.memo(RatingOrig)

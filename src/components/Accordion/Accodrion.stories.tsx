@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Story} from '@storybook/react';
 import {action} from "@storybook/addon-actions";
-import Accordion, {AccordionPropsType} from "./Accordion";
+import {Accordion, AccordionPropsType} from "./Accordion";
+
 
 export default {
     title: 'Accordion',

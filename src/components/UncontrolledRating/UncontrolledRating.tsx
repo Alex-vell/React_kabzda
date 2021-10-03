@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import {RatingValueType} from "../../App";
+import {RatingOrig} from "../Rating/Rating";
 
 export type UncontrolledRatingPropsType = {
     defaultValue?: RatingValueType
     onChange: (value: RatingValueType) => void
 }
 
-export function UncontrolledRating(props: UncontrolledRatingPropsType) {
+export function UncontrolledRatingOrig(props: UncontrolledRatingPropsType) {
 
     let [value, setValue] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0)
 
@@ -36,3 +37,4 @@ function Star(props: StarPropsType) {
         </span>
     )
 }
+export const UncontrolledRating = React.memo(UncontrolledRatingOrig)

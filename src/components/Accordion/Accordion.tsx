@@ -1,5 +1,6 @@
 import React from "react";
 
+
 type ItemType = {
     title: string
     value: any
@@ -19,7 +20,7 @@ export type AccordionPropsType = {
     onClick: (value: any) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
+export function AccordionOrig(props: AccordionPropsType) {
     console.log("Accordion rendering")
 
     return <div>
@@ -36,7 +37,6 @@ type AccordionTitlePropsType = {
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log("AccordionTitle rendering")
 
     return (
         <h3 onClick={(e) => props.onChange()}>{props.title}</h3>
@@ -48,7 +48,6 @@ type AccordionBodyType = {
     onClick: (value: any) => void
 }
 const AccordionBody = (props: AccordionBodyType) => {
-    console.log("AccordionBody rendering")
     return (
         <ul>
             {props.items.map((i, index) => <li key={index}
@@ -59,4 +58,4 @@ const AccordionBody = (props: AccordionBodyType) => {
     )
 }
 
-export default Accordion;
+export const Accordion = React.memo(AccordionOrig)

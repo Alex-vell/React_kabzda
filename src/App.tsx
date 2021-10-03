@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Rating} from "./components/Rating/Rating";
-import Accordion from "./components/Accordion/Accordion";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
+import {Accordion} from "./components/Accordion/Accordion";
 
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
 
-function App(props: any) {
+function AppOrig(props: any) {
     console.log("App rendering")
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
@@ -60,4 +60,4 @@ function PageTitle(props: PageTitlePropsType) {
 
 
 
-export default App;
+export const App = React.memo(AppOrig)
