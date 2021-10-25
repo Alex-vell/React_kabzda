@@ -3,6 +3,7 @@ import React, {useState} from "react";
 export default {
     title: 'useState.demo',
 }
+
 function generateData() {
     console.log('generateData')
     return 1
