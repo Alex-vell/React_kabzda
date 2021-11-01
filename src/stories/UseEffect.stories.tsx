@@ -83,36 +83,3 @@ export const SetIntervalExample = () => {
 
     </>
 }
-
-export const WatchesExample = () => {
-
-
-
-    const [hours, setHours] = useState(1)
-    const [minutes, setMinutes] = useState(1)
-    const [seconds, setSeconds] = useState(1)
-
-
-    //console.log('SetIntervalExample')
-
-    useEffect(() => {
-
-        setInterval(() => {
-            new Date(2011, 0, 1, 0, 0, 0, 0)
-            const a = new Date()
-
-            setHours(state => state = a.getHours())
-            setMinutes(state => state = a.getMinutes())
-            setSeconds(state => state = a.getSeconds())
-        }, 1000)
-
-    }, [])
-
-
-    return <>
-        watches: {hours} : {minutes} : {seconds}
-        {/*<button onClick={() => setCounter(counter + 1)}>counter+</button>
-        <button onClick={() => setFake(fake + 1)}>fake+</button>*/}
-
-    </>
-}
